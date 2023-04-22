@@ -21,7 +21,7 @@ public class Main {
         // testar a classe bilhete
         Sala sala1 = new Sala(1,10);
         Sessao sessao1 = new Sessao(filme1);
-        Bilhete bilhete1 = new Bilhete(usuario,sala1,filme1,sessao1);
+        Bilhete bilhete1 = new Bilhete(null, sala1,filme1,sessao1);
 
         System.out.println(bilhete1.toString());
         // ------------------------- O teste foi um sucesso.

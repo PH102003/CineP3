@@ -39,14 +39,7 @@ public void comprarItem(String item, int quantidade) {
     System.out.println(quantidade + " " + item + "(s) adicionado(s) à compra. Valor total: R$" + valorTotal);
 }
 
-public double calcularValorTotal() {
-    double valorTotal = 0;
-    for (Bilhete bilhete : bilhetes) {
-        valorTotal += bilhete.calcularValor();
-    }
-    valorTotal += pegarItens();
-    return valorTotal;
-}
+
 
 private double pegarItens() {
     Scanner scanner = new Scanner(System.in);
