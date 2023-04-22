@@ -1,62 +1,66 @@
 
 
 public class Bilhete {
-    private String CPF;
-    private Sala sala;
-    private Sessao sessao;
-    private Filme filme;
-    private double valor;
-    public Bilhete(String CPF, Sala sala, Sessao sessao, Filme filme, double valor) {
-        this.CPF = CPF;
+    // instancie as classes que irei utilizar para extrair informações(protegido)
+    private Usuario usuario = new Usuario();
+    private Sala sala = new Sala();
+    private Filme filme = new Filme();
+    private Sessao sessao = new Sessao();
+
+    // Construtor vazio - teste
+    public Bilhete() {
+    }
+
+    // Construtor - informações da escolha do usuario
+    public Bilhete(Usuario usuario, Sala sala, Filme filme, Sessao sessao) {
+        this.usuario = usuario;
         this.sala = sala;
-        this.sessao = sessao;
         this.filme = filme;
-        this.valor = valor;
-        
+        this.sessao = sessao;
     }
-    
-    public String getCPF() {
-        return CPF;
+
+    // GET E SET - vê e inserir informações:
+    public Usuario getUsuario() {
+        return usuario;
     }
-    public void setCPF(String CPF) {
-        this.CPF = CPF;
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
+
     public Sala getSala() {
         return sala;
     }
+
     public void setSala(Sala sala) {
         this.sala = sala;
     }
-    public Sessao getSessao() {
-        return sessao;
-    }
-    public void setSessao(Sessao sessao) {
-        this.sessao = sessao;
-    }
+
     public Filme getFilme() {
         return filme;
     }
+
     public void setFilme(Filme filme) {
         this.filme = filme;
     }
-    public double getValor() {
-        return valor;
-    }
-    public void setValor(double valor) {
-        this.valor = valor;
-    }
-    //metodo
-    public double calcularValor(){
-        //calcula o valor de cada ingresso por sala e filme
-        double valorIngresso = getValor()+filme.getValor()+getValor();
-        return valorIngresso;
-    }   
-    public void imprimirBilhete(){
-        //imprime as informações no bilhete
-        System.out.println();   
-    }
-    
-    
 
+    public Sessao getSessao() {
+        return sessao;
+    }
 
+    public void setSessao(Sessao sessao) {
+        this.sessao = sessao;
+    }
+
+    // Método valor
+    public double valor() {
+        double valorTotal = filme.getValor() + sala.getValor();
+        return valorTotal;
+    }
+
+    // imprimir as informações na classe Main.java
+    @Override
+    public String toString() {
+        return   usuario.getUser() +".  CPF:" + usuario.getCPF() +".  " + sessao.toString() + " ValorTotal: " + valor()+" $.";
+    }
     }

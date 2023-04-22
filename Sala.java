@@ -1,32 +1,52 @@
 public class Sala {
-    private Sessao[] sessoes;
-    private int numSessoes;
+   
+ private int tamanhoLista;
+ private Sessao[] sessoes;
+ private double valor;
 
-    // construtor
-    public Sala(int numSessoes) {
-        this.sessoes = new Sessao[numSessoes];
-        this.numSessoes = numSessoes;
+ public Sala() {
+ }
 
-    }
+ public Sala(int tamanhoLista, double valor) {
+     this.tamanhoLista = tamanhoLista;
+     this.valor = valor;
+     this.sessoes = new Sessao[tamanhoLista];
+ }
 
     // get sets
+    public int getTamanhoLista() {
+        return tamanhoLista;
+    }
+
+    public void setTamanhoLista(int tamanhoLista) {
+        this.tamanhoLista = tamanhoLista;
+    }
+
     public Sessao[] getSessoes() {
         return sessoes;
     }
 
     public void setSessoes(Sessao[] sessoes) {
         this.sessoes = sessoes;
-    }
 
-    public int getNumSessoes() {
-        return numSessoes;
-    }
+    } 
 
-    public void setNumSessoes(int numSessoes) {
-        this.numSessoes = numSessoes;
+    public double getValor() {
+        return valor;
     }
 
     // metodos
+    public void mostrarSessoes() {
+        for (int i = 0; i < tamanhoLista; i++) {
+            if (sessoes[i] != null) {
+                System.out.println("Horário " + i + ": " + sessoes[i].getFilme().getNome());
+            } else {
+                System.out.println("Horário " + i + ": não há sessão");
+            }
+        }
+    }
+
+
     public void mostrarHorariosNaSala() {
         Sessao horario = new Sessao(null);
         horario.horarios();
