@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 // Representa quem está comprando 
 
 public class Usuario {
@@ -12,6 +14,15 @@ public class Usuario {
     private String nomeDoCartao;
     private int numeroDoCartao;
     private int idDoCartao;
+    private Compra compra;
+
+    public Compra getCompra() {
+        return compra;
+    }
+
+    public void setCompra(Compra compra) {
+        this.compra = compra;
+    }
 
     // Construtor - vazio - para testes
     public Usuario() {
@@ -19,7 +30,7 @@ public class Usuario {
 
     // Construtor - interação do usuario com a lógica do código
     public Usuario(String user, String CPF, String senha, int idade, char sexo, String email, String nomeDoCartao,
-        int numeroDoCartao, int idDoCartao) {
+        int numeroDoCartao, int idDoCartao,Compra compra) {
         this.user = user;
         this.CPF = CPF;
         this.senha = senha;
@@ -29,6 +40,7 @@ public class Usuario {
         this.nomeDoCartao = nomeDoCartao;
         this.numeroDoCartao = numeroDoCartao;
         this.idDoCartao = idDoCartao;
+        this.compra=compra;
     }
 
     // GET E SET - para ver e inserir, respectivamente as instruções desejadas
@@ -104,15 +116,33 @@ public class Usuario {
         this.idDoCartao = idDoCartao;
     }
 
+    public void realizarCompra(){
+        Scanner in = new Scanner(System.in);
+        compra.comprarBilhete();
+        double valor = compra.pegarItens();
+        System.out.println("O valor dos itens ficou: "+valor);
+        System.out.println("Deseja alterar algo? Digite 1 para sim ou 2 para não ou 3 para cancelar!");
+        int resposta = in.nextInt();
+        if(resposta==1){
+            alterarCompra();
+        }else if(resposta==2){
+            System.out.println("O valor total ficou: "+compra.valorTotal(valor));
+        }else{
+            cancelarCompra();
+        }
+    }
     
-    public boolean alterarCompra() {
+    public boolean alterarCompra(){
+        compra.comprarBilhete();
+        double valor= compra.pegarItens();
         System.out.println("Compra alterada com sucesso!");
+        System.out.println("Seu novo valor é: "+valor);
         return true; // inserir a lógica de alterar
     }
 
-    public boolean cancelarCompra() {
+    public void cancelarCompra() {
         System.out.println("Compra cancelada com sucesso!");
-        return true; // inserir a lógica de zerar
+        return; // inserir a lógica de zerar
     }
 
     // toString - para que possa imprimir as informações dessas classe como String na classe Main.java

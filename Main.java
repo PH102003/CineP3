@@ -2,9 +2,9 @@ public class Main {
     public static void main(String[] args) {
         Sessao s1 = new Sessao(null);
         s1.horarios();
-        Compra c1 = new Compra(2, 2);
-        c1.usuarioDiminuir();
-        Compra c2 = new Compra(0, 0);
+        Compra c1 = new Compra();
+        //c1.usuarioDiminuir();
+        Compra c2 = new Compra();
         
         // testar a classe filme e sessao.
         Filme filme1 = new Filme("Matrix", 136,

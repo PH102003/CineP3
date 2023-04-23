@@ -4,13 +4,27 @@ import java.util.Scanner;
 
 public class Compra{
     
-private double valorPipoca;
-private double valorCoca;
+private Produtos produto;
+private Bilhete bilhete;
+public Bilhete getBilhete() {
+    return bilhete;
+}
+
+public void setBilhete(Bilhete bilhete) {
+    this.bilhete = bilhete;
+}
+
+public Produtos getProduto() {
+    return produto;
+}
+
+public void setProduto(Produtos produto) {
+    this.produto = produto;
+}
+
 private List<Bilhete> bilhetes;
 
-public Compra(double valorPipoca, double valorCoca) {
-    this.valorPipoca = valorPipoca;
-    this.valorCoca = valorCoca;
+public Compra() {
     this.bilhetes = new ArrayList<Bilhete>();
 }
 
@@ -18,11 +32,11 @@ public List<Bilhete> getBilhetes() {
     return bilhetes;
 }
 
-public void comprarBilhete(Bilhete bilhete) {
+public void comprarBilhete() {
     bilhetes.add(bilhete);
 }
 
-public void comprarItem(String item, int quantidade) {
+/*public void comprarItem(String item, int quantidade) {
     double valorItem = 0;
     switch (item.toLowerCase()) {
         case "pipoca":
@@ -37,28 +51,34 @@ public void comprarItem(String item, int quantidade) {
     }
     double valorTotal = valorItem * quantidade;
     System.out.println(quantidade + " " + item + "(s) adicionado(s) à compra. Valor total: R$" + valorTotal);
-}
+}*/
 
 
 
-private double pegarItens() {
+public double pegarItens() {
     Scanner scanner = new Scanner(System.in);
     System.out.println("Adicionar itens à compra? (sim/não)");
     String resposta = scanner.nextLine().toLowerCase();
     double valorTotal = 0;
     while (resposta.equals("sim")) {
-        System.out.println("Qual item deseja adicionar? (pipoca, refrigerante)");
+        System.out.println("Qual item deseja adicionar? (pipoca, refrigerante,suco,chocolate,nachos)");
         String item = scanner.nextLine();
         System.out.println("Quantidade:");
         int quantidade = scanner.nextInt();
         scanner.nextLine();
         switch (item.toLowerCase()) {
             case "pipoca":
-                valorTotal += valorPipoca * quantidade;
+                valorTotal += produto.PIPOCA.getValor() * quantidade;
                 break;
             case "refrigerante":
-                valorTotal += valorCoca * quantidade;
+                valorTotal += produto.REFRIGERANTE.getValor() * quantidade;
                 break;
+            case "suco":
+                valorTotal += produto.SUCO.getValor() *quantidade;
+            case "chocolate":
+                valorTotal += produto.CHOCOLATE.getValor() *quantidade;
+            case "nachos":
+                valorTotal += produto.NACHOS.getValor() *quantidade;
             default:
                 System.out.println("Desculpe, esse item não está disponível.");
         }
@@ -68,7 +88,10 @@ private double pegarItens() {
     scanner.close();
     return valorTotal;
 }
-public void usuarioDiminuir() {
+public double valorTotal(double valorItens){
+    return bilhete.valor()+valorItens;
+}
+/*public void usuarioDiminuir() {
     Scanner sc = new Scanner(System.in);
     //verifica se o valorCoca é maior q 1, se for, faz a operaçao
 
@@ -99,7 +122,7 @@ public void diminuirUnidadePipoca(int unidade) {
 
 public void diminuirUnidadeCoca(int unidade) {
     this.valorCoca -= unidade;
-}
+}*/
 
 
 }
