@@ -118,7 +118,15 @@ public class Usuario {
 
     public void realizarCompra(){
         Scanner in = new Scanner(System.in);
-        compra.comprarBilhete();
+        System.out.println("Deseja comprar Bilhetes?");
+        String compraBilhetes= in.next().toLowerCase();
+        if(compraBilhetes.equals("sim")){
+            System.out.println("Quantos deseja?");
+            int quantos=in.nextInt();
+            compra.comprarBilhete(quantos);
+        }else{
+            cancelarCompra();
+        }
         double valor = compra.pegarItens();
         System.out.println("O valor dos itens ficou: "+valor);
         System.out.println("Deseja alterar algo? Digite 1 para sim ou 2 para não ou 3 para cancelar!");
@@ -132,12 +140,19 @@ public class Usuario {
         }
     }
     
-    public boolean alterarCompra(){
-        compra.comprarBilhete();
+    public void alterarCompra(){
+        Scanner in = new Scanner(System.in);
+        System.out.println("Deseja mudar a quantidade de bilhetes?");
+        String compraBilhetes=in.next().toLowerCase();
+        if(compraBilhetes.equals("sim")){
+            System.out.println("Quantos deseja?");
+            int quantos=in.nextInt();
+            compra.comprarBilhete(quantos);
+        }
         double valor= compra.pegarItens();
         System.out.println("Compra alterada com sucesso!");
         System.out.println("Seu novo valor é: "+valor);
-        return true; // inserir a lógica de alterar
+        return; // inserir a lógica de alterar
     }
 
     public void cancelarCompra() {

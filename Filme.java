@@ -1,12 +1,16 @@
 public class Filme {
 
     // Atributos - informação do fime.
-    public Critica[] critica = new Critica[100];
+    private Critica[] criticas;    
     public String nome;
     public int duracao;
     public String sinopse;
     public double valor;
     public int quantidade_criticos;
+    public double [] notas;
+       public double mediaNotas;
+
+
      
     // Construtor vazio - para teste
 
@@ -14,11 +18,13 @@ public class Filme {
     }
 
     // Construtor - adicionar um filme
-    public Filme(String nome, int duracao, String sinopse, double valor) {
+    public Filme(String nome, int duracao, String sinopse, double valor, int quantidade_criticos) {
         this.nome = nome;
         this.duracao = duracao;
         this.sinopse = sinopse;
         this.valor = valor;
+        this.criticas = new Critica[100];
+        this.quantidade_criticos = 0;
     }
 
     public String getNome() {
@@ -52,7 +58,16 @@ public class Filme {
     public void setValor(double valor) {
         this.valor = valor;
     }
-
+    public void adicionarNota(double nota) {
+        notas[quantidade_criticos] = nota;
+        quantidade_criticos++;
+        mediaNotas = (mediaNotas * (quantidade_criticos - 1) + nota) / quantidade_criticos;
+    }
+    
+    public void adicionarCritica(Critica critica) {
+        criticas[quantidade_criticos] = critica;
+        quantidade_criticos++;
+    }
     // toString para imprimir as informações da classe na classe Main.java
 
     @Override

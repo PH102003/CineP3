@@ -32,8 +32,9 @@ public List<Bilhete> getBilhetes() {
     return bilhetes;
 }
 
-public void comprarBilhete() {
-    bilhetes.add(bilhete);
+public double comprarBilhete(int quantidade) {
+    double valorBilhetes = bilhete.valor();
+    return valorBilhetes;
 }
 
 /*public void comprarItem(String item, int quantidade) {

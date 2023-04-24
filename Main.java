@@ -8,7 +8,7 @@ public class Main {
         
         // testar a classe filme e sessao.
         Filme filme1 = new Filme("Matrix", 136,
-                "Um hacker é recrutado para lutar contra máquinas que dominaram o mundo", 20.50);
+                "Um hacker é recrutado para lutar contra máquinas que dominaram o mundo", 20.50, 0);
         Sessao sessao = new Sessao(filme1);
         sessao.verCadeirasDisponiveis();
         sessao.reservarCadeira(0, 0);

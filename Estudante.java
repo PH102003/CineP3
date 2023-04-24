@@ -8,7 +8,7 @@ public class Estudante extends Usuario{
     @Override
     public void realizarCompra(){
         Scanner in = new Scanner(System.in);
-        super.getCompra().comprarBilhete();
+        super.getCompra().getBilhete();
         double valor = super.getCompra().pegarItens();
         System.out.println("O valor dos itens ficou: "+valor);
         System.out.println("Deseja alterar algo? Digite 1 para sim ou 2 para não ou 3 para cancelar!");

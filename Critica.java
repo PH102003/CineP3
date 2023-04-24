@@ -2,19 +2,32 @@ public class Critica{
    public String nome;
    public String origem;
    public String comentarioDoCritico;
-   public Critica [] critica = new Critica [100];
-
-   public Critica(String nome, String origem, String comentarioDoCritico){
-    this.nome = nome;
-    this.origem = origem;
-    this.comentarioDoCritico = comentarioDoCritico;
+   public double nota;
+   public int quantidade_criticos;
+   
+   public Critica(String nome, String origem, String comentarioDoCritico, int quantidadeCriticos){
+       this.nome = nome;
+       this.origem = origem;
+       this.comentarioDoCritico = comentarioDoCritico;
+       this.quantidade_criticos = 0;
    }
-   public void atribuirNota(){
-
+   public String getNome() {
+       return nome;
    }
-   public void atribuirCritica(String critica, Filme nomeFilme){
-     for(int i = 0; i < critica.length()- 1; i++){
-        
-     }
+   
+   public String getOrigem() {
+       return origem;
    }
+   public String getComentarioDoCritico() {
+    return comentarioDoCritico;
+   }
+   
+public void atribuirNota(double nota, Filme filme) {
+    filme.adicionarNota(nota);
 }
+
+/*public void atribuirCritica(String critica, Filme filme) {
+    filme.adicionarCritica(critica);
+}*/ 
+}
+
