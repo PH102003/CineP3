@@ -8,6 +8,7 @@ public class Estudante extends Usuario{
     @Override
     public void realizarCompra(){
         Scanner in = new Scanner(System.in);
+        //tava .getCompra().comprarBilhete(), porém, faltava um parâmetro(int) e dava erro.
         super.getCompra().getBilhete();
         double valor = super.getCompra().pegarItens();
         System.out.println("O valor dos itens ficou: "+valor);
