@@ -7,6 +7,7 @@ public class Bilhete {
     private Filme filme = new Filme();
     private Sessao sessao = new Sessao();
 
+
     // Construtor vazio - teste
     public Bilhete() {
     }
@@ -57,6 +58,7 @@ public class Bilhete {
         double valorTotal = filme.getValor() + sala.getValor();
         return valorTotal;
     }
+    
 
     // imprimir as informações na classe Main.java
     @Override

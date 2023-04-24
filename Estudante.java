@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class Estudante extends Usuario{
-    Estudante(String user, String CPF, String senha, int idade, char sexo, String email, String nomeDoCartao,
+   public Estudante(String user, String CPF, String senha, int idade, char sexo, String email, String nomeDoCartao,
     int numeroDoCartao, int idDoCartao,Compra compra){
         super(user, CPF, senha, idade, sexo, email, nomeDoCartao, numeroDoCartao, idDoCartao, compra);
     }

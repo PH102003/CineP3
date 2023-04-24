@@ -1,11 +1,12 @@
 public class Filme {
 
     // Atributos - informação do fime.
-
+    public Critica[] critica = new Critica[100];
     public String nome;
     public int duracao;
     public String sinopse;
     public double valor;
+    public int quantidade_criticos;
      
     // Construtor vazio - para teste
 

@@ -65,7 +65,7 @@ public double pegarItens() {
         String item = scanner.nextLine();
         System.out.println("Quantidade:");
         int quantidade = scanner.nextInt();
-        scanner.nextLine();
+        scanner.next();
         switch (item.toLowerCase()) {
             case "pipoca":
                 valorTotal += produto.PIPOCA.getValor() * quantidade;
@@ -75,10 +75,13 @@ public double pegarItens() {
                 break;
             case "suco":
                 valorTotal += produto.SUCO.getValor() *quantidade;
+                break;
             case "chocolate":
                 valorTotal += produto.CHOCOLATE.getValor() *quantidade;
+                break;
             case "nachos":
                 valorTotal += produto.NACHOS.getValor() *quantidade;
+                break;
             default:
                 System.out.println("Desculpe, esse item não está disponível.");
         }
@@ -96,7 +99,7 @@ public double valorTotal(double valorItens){
     //verifica se o valorCoca é maior q 1, se for, faz a operaçao
 
     if (valorCoca > 0) {
-        System.out.println("Deseja remover quantas unidades de Coca-Cola? Digite um número entre 1.0 e " + valorCoca);
+        System.out.println("Deseja remover alguma unidade de Coca-Cola? Digite um número entre 1.0 e " + valorCoca + "Se não, digite 0");
         int unidadeCoca = sc.nextInt();
         if (unidadeCoca > 0 && unidadeCoca <= valorCoca) {
             diminuirUnidadeCoca(unidadeCoca);
@@ -105,7 +108,7 @@ public double valorTotal(double valorItens){
     }
     //mesma coisa aqui
     if (valorPipoca > 0) {
-        System.out.println("Deseja remover quantas unidades de Pipoca? Digite um número entre 1.0 e " + valorPipoca);
+        System.out.println("Deseja remove alguma unidade de Pipoca? Se sim, Digite um número entre 1.0 e " + valorPipoca + "Se não, digite 0");
         int unidadePipoca = sc.nextInt();
         if (unidadePipoca > 0 && unidadePipoca <= valorPipoca) {
             diminuirUnidadePipoca(unidadePipoca);
@@ -123,6 +126,9 @@ public void diminuirUnidadePipoca(int unidade) {
 public void diminuirUnidadeCoca(int unidade) {
     this.valorCoca -= unidade;
 }*/
+
+public void setBilhete(int i) {
+}
 
 
 }
