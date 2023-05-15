@@ -1,5 +1,6 @@
 import java.util.Scanner;
 
+
 public class Estudante extends Usuario{
    public Estudante(String user, String CPF, String senha, int idade, char sexo, String email, String nomeDoCartao,
     int numeroDoCartao, int idDoCartao,Compra compra){
