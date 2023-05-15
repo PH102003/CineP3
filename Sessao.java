@@ -4,9 +4,11 @@ public class Sessao {
     private Filme filme;
     private boolean[][] cadeiras; // se está ocupado ou não
 
+
     // Construtor vazio - para teste
     public Sessao() {
     }
+
 
     // Construtor que irá usara o filme escolhido pelo usuário
     public Sessao(Filme filme) {
@@ -20,10 +22,13 @@ public class Sessao {
         }
     }
 
+
     // gets e sets
     public int getLinhas() {
         return linhas;
     }
+
+
 
 
     public void setLinhas(int linhas) {
@@ -31,9 +36,13 @@ public class Sessao {
     }
 
 
+
+
     public int getColunas() {
         return colunas;
     }
+
+
 
 
     public void setColunas(int colunas) {
@@ -41,9 +50,13 @@ public class Sessao {
     }
 
 
+
+
     public Filme getFilme() {
         return filme;
     }
+
+
 
 
     public void setFilme(Filme filme) {
@@ -51,28 +64,36 @@ public class Sessao {
     }
 
 
+
+
     public boolean[][] getCadeiras() {
         return cadeiras;
     }
+
+
 
 
     public void setCadeiras(boolean[][] cadeiras) {
         this.cadeiras = cadeiras;
     }
 
+
     // metodos
-    
+   
     public void reservarCadeira(int linha, int coluna) {
+
 
         // verificar se tem algum filme
         if (this.filme == null) {
             System.out.println("Não há nenhum filme nesta sessão");
         }
 
+
         // verificar se as linha e colunas são validas
         else if (linha < 0 || linha >= linhas || coluna < 0 || coluna >= colunas) {
             System.out.println("Cadeira inválida");
         }
+
 
         // escolher lugar
         else if (this.cadeiras[linha][coluna]) {
@@ -86,7 +107,9 @@ public class Sessao {
         }
     }
 
+
     public void horarios() {
+
 
         String primeiroHorario, segundoHorario, terceiroHorario, quartoHorario, quintoHorario;
         primeiroHorario = "9:00 - 11:00 \n";
@@ -95,17 +118,21 @@ public class Sessao {
         quartoHorario = "16:30 - 17:30 \n";
         quintoHorario = "18:00 - 20:00 \n";
 
+
         System.out.println("Horários disponíveis: \n" + primeiroHorario + segundoHorario + terceiroHorario
                 + quartoHorario + quintoHorario);
 
+
     }
 
+
     public void verCadeirasDisponiveis() {
-        
+       
         // Verificar se tem filme
         if (this.filme == null) {
             System.out.println("Não há nenhum filme nesta sessão");
-        } 
+        }
+
 
         // caso tenha um filme
         else {
@@ -119,11 +146,13 @@ public class Sessao {
         }
     }
 
+
    
     @Override
     public String toString() {
-        
+       
         return ". "+ filme;
     }
+
 
 }
