@@ -6,6 +6,7 @@ public class Compra{
     
 private Produtos produto;
 private Bilhete bilhete;
+
 public Bilhete getBilhete() {
     return bilhete;
 }
@@ -24,16 +25,19 @@ public void setProduto(Produtos produto) {
 
 private List<Bilhete> bilhetes;
 
-public Compra() {
+public Compra(Produtos produto2, Bilhete bilhete2) {
     this.bilhetes = new ArrayList<Bilhete>();
+    this.produto = produto2;
+
 }
 
 public List<Bilhete> getBilhetes() {
     return bilhetes;
 }
 
-public void comprarBilhete() {
-    bilhetes.add(bilhete);
+public double comprarBilhete(int quantidade) {
+    double valorBilhetes = bilhete.valor();
+    return valorBilhetes;
 }
 
 /*public void comprarItem(String item, int quantidade) {
