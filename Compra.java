@@ -65,7 +65,7 @@ public double pegarItens() {
         String item = scanner.nextLine();
         System.out.println("Quantidade:");
         int quantidade = scanner.nextInt();
-        scanner.next();
+    
         switch (item.toLowerCase()) {
             case "pipoca":
                 valorTotal += produto.PIPOCA.getValor() * quantidade;
