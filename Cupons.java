@@ -1,5 +1,5 @@
 public enum Cupons {
-    ESTUDANTE(0.50),
+    BLACK(0.50),
     FUNCIONARIO(0.15),
     IDOSO(0.20);
     private double valor;
