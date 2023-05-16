@@ -24,10 +24,13 @@ public class Compras extends Compra{
             switch(num){
                 case 1:
                 valorComDesconto=valorBilhetes*this.cupom.BLACK.getValor();
+                break;
                 case 2:
                 valorComDesconto=valorBilhetes*this.cupom.FUNCIONARIO.getValor();
+                break;
                 case 3:
                 valorComDesconto=valorBilhetes*this.cupom.IDOSO.getValor();
+                break;
                 default:
                 System.out.println("ERRO");
             }
